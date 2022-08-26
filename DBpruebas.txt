@@ -1,0 +1,38 @@
+
+db.usuarios.insertOne({
+    "nombre": "maria",
+    "edad": 25,
+    "soltero": true,
+    "cedula": "1234567"
+})
+
+db.usuarios.insertOne({
+    "nombre": "lucas",
+    "edad": 33,
+    "soltero": false,
+    "cedula": "9981720"
+})
+
+// find por cedula
+db.usuarios.find({cedula:"9981720"}).pretty()
+
+// find por id
+db.usuarios.find({_id:ObjectId("62922cbf76e8ff623aff775e")})
+
+//consulta
+db.usuarios.find().pretty()
+
+// eliminar
+db.usuarios.deleteOne({_id: ObjectId("6292260676e8ff623aff775c")})
+
+// actualizar
+db.usuarios.updateOne(
+    {_id: ObjectId("62922c3a76e8ff623aff775d")},
+    {$set:{edad: 26}}
+)
+
+// update para todos los documentos (where vacio)
+db.usuarios.updateMany(
+    {},
+    {$set:{edad: 26}}
+)

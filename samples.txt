@@ -1,0 +1,27 @@
+app.get('/', (req, res) => {
+    res.send('HOLA API GET');
+});
+
+app.post('/', (req, res) => {
+    res.send('HOLA API POST');
+});
+
+//http://dominio.com?llave=123&nombre=alejo
+app.get('/saludar',(req, res) => {
+    //console.log('req', req);
+    res.send(`Hola ${req.query.nombre}`);
+});
+
+// body (suma)
+app.post('/sumar', (req, res) => {
+    console.log('req', req);
+    const suma= req.body.numero1 + req.body.numero2; 
+    res.send(`la suma es ${suma}`);
+});
+
+app.post('/info/:idUser/:idAccount', (req, res) => {
+    console.log('req', req);
+    res.send(`ID usuario ${req.params.idUser}, cuenta ${req.params.idAccount}`);
+});
+
+https://github.com/ander0716/morada-api
